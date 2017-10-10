@@ -24,7 +24,7 @@
 % John M. O' Toole, University College Cork
 % Started: 10-10-2017
 %
-% last update: Time-stamp: <2017-10-10 13:25:48 (otoolej)>
+% last update: Time-stamp: <2017-10-10 16:42:04 (otoolej)>
 %-------------------------------------------------------------------------------
 function all_data=gen_random_NIRS_data(N_babies)
 if(nargin<1 || isempty(N_babies)), N_babies=50; end
@@ -58,12 +58,6 @@ outcome(outcome==0)=3;
 all_data=struct('baby_ID',ids,'DOB_time',dobs,'GA',num2cell(ga), ...
                 'outcome',num2cell(outcome));
 
-
-% $$$ dispVars(100*length(find([all_data.outcome]==1))./N_babies, ...
-% $$$          100*length(find([all_data.outcome]==2))./N_babies, ...
-% $$$          100*length(find([all_data.outcome]==3))./N_babies, ...
-% $$$          100*length(find([all_data.outcome]==0))./N_babies)
-% $$$ 
 
 DBplot=0;
 if(DBplot), set_figure(1); end

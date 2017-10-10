@@ -37,20 +37,4 @@ loglikelihood.ratio.test.MEM <- function(p1,p2,df1,df2){
     show(res)
 
     return(list('logLikeTable'=res,'whichModel'=betterFitModel))
-
-
-    # had this originally (from Vickis book), but not correct?;
-    ## a <- logLik(p1,REML=TRUE)
-    ## b <- logLik(p2,REML=TRUE)
-    ## ll.diff <- -2*(a[1]-b[1])
-
-    ## pvalue <- 0.5*(1-pchisq(ll.diff,df1)) + 0.5*(1-pchisq(ll.diff,df2))
-    
-    ## show(p1@call)
-    ## show(p2@call)
-    ## print(sprintf('logLik1=%f',a))
-    ## print(sprintf('logLik2=%f',b))
-    ## print(sprintf('log-like difference=%f; p-value=%f',ll.diff,pvalue))    
-    
-    ## return(pvalue)
 }

@@ -25,7 +25,7 @@
 % John M. O' Toole, University College Cork
 % Started: 03-11-2014
 %
-% last update: Time-stamp: <2017-10-10 10:43:05 (otoolej)>
+% last update: Time-stamp: <2017-10-10 16:42:14 (otoolej)>
 %-------------------------------------------------------------------------------
 function [p_adj,h]=holm_p_correction(p_values,alpha)
 if(nargin<2 || isempty(alpha)), alpha=0.05; end
@@ -69,7 +69,3 @@ end
 if(DBverbose)
     print_table([p_values; p_values.*N; p_adj; h]',{'p-value','p-bonf','p-adj.','H'},[],[],1,3);
 end
-
-
-% $$$ dispVars(p_adj);
-% $$$ dispVars(h);
