@@ -21,7 +21,7 @@
 % John M. O' Toole, University College Cork
 % Started: 17-10-2014
 %
-% last update: Time-stamp: <2017-10-09 18:26:56 (otoolej)>
+% last update: Time-stamp: <2017-10-10 14:07:17 (otoolej)>
 %-------------------------------------------------------------------------------
 function []=print_table(str_table,x_column,y_row,max_length,fout,dec_point)
 if(nargin<2 || isempty(x_column)), x_column=[]; end
@@ -138,6 +138,18 @@ for m=1:N
     fw_fprintf(fout,'\n');
 end
 
+
+
+function fw_fprintf(fids,str,varargin)
+%---------------------------------------------------------------------
+% print to stdout and file
+%---------------------------------------------------------------------
+if(nargin<2), error('need more inputs.'); end
+if(nargin>2), str=sprintf(str,varargin{:}); end
+
+for n=1:length(fids)
+    fprintf(fids(n),str);
+end
 
 
 

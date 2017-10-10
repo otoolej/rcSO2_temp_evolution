@@ -19,7 +19,7 @@
 %     >> outcome_hypoxia_hyperoxia;
 %
 % Requires:
-%   Matlab Statistics toolbox; 
+%   Matlab (> R2013a) and Statistics toolbox (> v8.2); 
 %   functions: gen_random_NIRS_data, holm_p_correction, 
 %              cal_area_above_below, print_table.
 
@@ -27,21 +27,12 @@
 % John M. O' Toole, University College Cork
 % Started: 30-10-2014
 %
-% last update: Time-stamp: <2017-10-10 13:20:59 (otoolej)>
+% last update: Time-stamp: <2017-10-10 14:48:41 (otoolej)>
 %-------------------------------------------------------------------------------
 function [sum_st]=outcome_hypoxia_hyperoxia(all_info)
 if(nargin<1 || isempty(all_info))
     all_info=gen_random_NIRS_data(120);
 end
-
-
-
-%---------------------------------------------------------------------
-% load and prune the data set
-%---------------------------------------------------------------------
-% $$$ all_info=load_data_sort_infants;
-% $$$ % with time of birth:
-% $$$ all_info=get_TOBDOB_3datasets(all_info);
 
 
 N_babies=length(all_info);
@@ -233,8 +224,6 @@ function x=modify_str(x)
 %---------------------------------------------------------------------
 x=strrep(x,'area_bel55','log(AREA <55/60 rcSO2)');
 x=strrep(x,'area_ab85','log(AREA >85/90 rcSO2)');
-
-
 
 
 function [data,time]=trim_nans_start_end(data,time)

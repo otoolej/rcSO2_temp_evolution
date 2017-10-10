@@ -5,19 +5,26 @@
 % Syntax: all_data=gen_random_NIRS_data(N_babies)
 %
 % Inputs: 
-%     N_babies - 
+%     N_babies - number of babies 
 %
 % Outputs: 
-%     all_data - 
+%     all_data - data structure as an array of structures, of the form:
+%
+%                     baby_ID: '1'
+%                    DOB_time: '14-Sep-2015 01:16:00'
+%                          GA: 203
+%                     outcome: 2
+%                   nirs_time: [10463x1 double]
+%                   nirs_data: [10463x1 double]
 %
 % Example:
-%     
+%     >> all_data = gen_random_NIRS_data(120);
 %
 
 % John M. O' Toole, University College Cork
 % Started: 10-10-2017
 %
-% last update: Time-stamp: <2017-10-10 12:49:12 (otoolej)>
+% last update: Time-stamp: <2017-10-10 13:25:48 (otoolej)>
 %-------------------------------------------------------------------------------
 function all_data=gen_random_NIRS_data(N_babies)
 if(nargin<1 || isempty(N_babies)), N_babies=50; end
@@ -34,10 +41,6 @@ dobs=arrayfun(@datestr,linspace(t_start,t_end,N_babies),'un',0);
 % gestational age:
 ga=randi([168 223],1,N_babies);
 
-% delivery-room end time (i.e. time left delivery room):
-DR_end_time=randi([20 120],1,N_babies);
-DR_end_time=arrayfun(@datestr, cellfun(@datenum,dobs) + (DR_end_time./(24*60)),'un',0);
-
 
 % outcome:
 iall=randperm(N_babies,N_babies);
@@ -52,8 +55,8 @@ outcome(outcome==0)=3;
 
 
 % fill into structure array:
-all_data=struct('baby_ID',ids,'DOB_time',dobs,'delivery_room_end_time', ...
-                DR_end_time,'GA',num2cell(ga),'outcome',num2cell(outcome));
+all_data=struct('baby_ID',ids,'DOB_time',dobs,'GA',num2cell(ga), ...
+                'outcome',num2cell(outcome));
 
 
 % $$$ dispVars(100*length(find([all_data.outcome]==1))./N_babies, ...
