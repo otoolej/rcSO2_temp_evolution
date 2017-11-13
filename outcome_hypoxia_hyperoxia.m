@@ -27,7 +27,7 @@
 % John M. O' Toole, University College Cork
 % Started: 30-10-2014
 %
-% last update: Time-stamp: <2017-10-10 14:48:41 (otoolej)>
+% last update: Time-stamp: <2017-11-13 17:46:48 (otoolej)>
 %-------------------------------------------------------------------------------
 function [sum_st]=outcome_hypoxia_hyperoxia(all_info)
 if(nargin<1 || isempty(all_info))
@@ -201,7 +201,7 @@ x_all=x;
 x(isnan(x))=[];
 N=length(x);
 
-low_thres=50; high_thres=80;
+low_thres=55; high_thres=85;
 if(sum_st(n).GA>=28)
     low_thres=low_thres+5;
     high_thres=high_thres+5;
