@@ -4,8 +4,8 @@
 Matlab and R code used to in:
 
 `Kenosi M, O’ Toole JM, Hawkes GA, Hutch W, Low E, Wall M, Boylan GB, Ryan CA, Dempsey EM,
-Monitoring cerebral oxygenation of preterm infants using a neonatal specific sensor, under
-review (2017).`
+Monitoring cerebral oxygenation of preterm infants using a neonatal specific sensor,
+Journal of Perinatology, 2018, 38(3):264.` [10.1038/s41372-017-0007-5](https://doi.org/10.1038/s41372-017-0007-5)
 
 Code only. No data.
 
